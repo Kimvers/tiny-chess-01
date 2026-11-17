@@ -3,7 +3,7 @@ O=10**5
 V=(0,100,320,330,500,900,0)
 A=(-33,-31,-18,-14,14,18,31,33);Y=(-17,-15,15,17);Z=(-16,-1,1,16);F=Y+Z
 D=(0,0,(A,0),(Y,1),(Z,1),(Y+Z,1),(F,0))
-B=[0]*128;S=1;C=0;E=-1;M=0;K=[0,0];N=0;W={};H=0
+B=[0]*128;S=1;C=0;E=-1;M=0;K=[0,0];N=0;W={};H=0;G=0
 class X(Exception):pass
 def a(p,s,q):
  global M
@@ -86,7 +86,7 @@ def o(m):
  if c:return V[abs(c)]*10
  return 0
 def f(d,x,z,l):
- global N,H
+ global N,H,G
  N+=1
  if N>=O:raise X
  s=M*S+10
@@ -100,7 +100,7 @@ def f(d,x,z,l):
  for m in sorted(g(),key=o,reverse=True):
   t2=(m>>7)&127;c=B[t2]
   if abs(c)==6:continue
-  if d<=0 and not h and not c and t2!=E:continue
+  if not h and not c and t2!=E and(d<=0 or d==1 and n and s+150<x):continue
   u=y(m)
   if k(K[S>0],S):y(0,u);continue
   n+=1;r=-f(d-1,-z,-x,l+1);y(0,u)
@@ -113,6 +113,7 @@ def f(d,x,z,l):
   if h:return -10**5+l
   return 0 if d>0 else x
  if d>0:W[e]=w2
+ if l==0:G=w2
  return b
 def R():
  global N
@@ -120,7 +121,7 @@ def R():
  for d in range(1,99):
   try:
    f(d,-10**6,10**6,0)
-   b=W.get((tuple(B),S,C,E))or b
+   b=G or b
   except X:break
  return b
 def d(n):
